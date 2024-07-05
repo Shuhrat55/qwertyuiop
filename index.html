@@ -122,8 +122,9 @@
                             vkBridge.subscribe((e) => {
                               if (e.detail.type === 'VKWebAppViewHide') {
                                 // Действия при сворачивании или  
-                                alert("Суки");
-                                unityInstance.SendMessage('mus', 'JsMus', 5);
+                                          alert("Суки");
+                                          Console.log("fghjk");
+                                          unityInstance.SendMessage('mus', 'JsMus', 5);
                                 // переключении из игры или мини-приложения
                               }
                             });
