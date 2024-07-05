@@ -121,7 +121,7 @@
     <script>
                             vkBridge.subscribe('VKWebAppViewHide') {
                               .then((data)=>{
-                                if(data.reason=="hide"){
+                                if(data.reason==="hide"){
                                   unityInstance.SendMessage('mus', 'JsMus', 5);
                                   alert("67");
                                 }
