@@ -119,15 +119,14 @@
     </script>
     
     <script>
-                            vkBridge.subscribe((e) => {
-                              if (e.detail.type === 'VKWebAppViewHide') {
-                                // Действия при сворачивании или  
-                                          alert("Суки");
-                                          Console.log("fghjk");
-                                          unityInstance.SendMessage('Image', 'JsMus', 5);
-                                // переключении из игры или мини-приложения
-                              }
-                            });
+                            vkBridge.subscribe('VKWebAppViewHide') {
+                              .then((data)=>{
+                                if(data.reason=="hide"){
+                                  unityInstance.SendMessage('Image', 'JsMus', 5);
+                                  alert("67");
+                                }
+                              })
+                            }); 
                                                    
                                         
             function FromUnityToJs ()   // функция вызывается из Unity
