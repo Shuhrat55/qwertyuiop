@@ -119,27 +119,15 @@
     </script>
     
     <script>
-                                                    // Подписываемся на события
-                                              vkBridge.subscribe(eventHandler); 
-                                              
-                                              // ...
-                                              
-                                              function eventHandler(e) {
-                                              
-                                                const { type, data } = e.detail;
-                                                switch(type) {
-                                                  case 'VKWebAppViewHide':
-                                                    unityInstance.SendMessage('mus', 'JsMus', 5);
-                                                    break;
-                                                  case 'VKWebAppViewRestore': 
-                                                    
-                                                    break;
-                                                          
-                                                    // Обработчики других событий
-                                                    // ...
-                                              
-                                                  }
-                                              }
+                            vkBridge.subscribe((e) => {
+                              if (e.detail.type === 'VKWebAppViewHide') {
+                                // Действия при сворачивании или  
+                                unityInstance.SendMessage('mus', 'JsMus', 5);
+                                // переключении из игры или мини-приложения
+                              }
+                            });
+                                                   
+                                        
             function FromUnityToJs ()   // функция вызывается из Unity
       {
         vkBridge.send('VKWebAppShowNativeAds', {
