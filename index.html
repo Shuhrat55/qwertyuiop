@@ -119,16 +119,6 @@
     </script>
     
     <script>
-                            vkBridge.subscribe('VKWebAppViewHide') {
-                              .then((data)=>{
-                                if(data.reason==="hide"){
-                                  unityInstance.SendMessage('mus', 'JsMus', 5);
-                                  alert("67");
-                                }
-                              });
-                           
-                                                   
-                                        
             function FromUnityToJs ()   // функция вызывается из Unity
       {
         vkBridge.send('VKWebAppShowNativeAds', {
@@ -161,7 +151,16 @@
       jQuery(document).ready(function($) // страница прогружена
        {
 
-
+                 vkBridge.subscribe('VKWebAppViewHide') {
+                              .then((data)=>{
+                                if(detail.data.reason==="hide"){
+                                  unityInstance.SendMessage('mus', 'JsMus', 5);
+                                  alert("67");
+                                }
+                              });
+                           
+                                                   
+                                        
 
       });
     </script>
